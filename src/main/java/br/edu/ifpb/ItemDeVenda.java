@@ -10,16 +10,26 @@ public class ItemDeVenda {
     private final Produto produto;
     private final int quantidade;
     private final double desconto;
-
     public ItemDeVenda(int quantidade, Produto produto, double desconto) {
         this.produto = produto;
         this.quantidade = quantidade;
         this.desconto = desconto;
     }
+
+    public double calcularSubTotal(){
+        double valor = this.produto().valor();
+        double desconto = this.desconto();
+        int quantidade = this.quantidade();
+        return valor * quantidade - desconto;
+    }
+
     public Produto produto(){
         return this.produto;
     }
     public int quantidade(){
         return this.quantidade;
+    }
+    public double desconto() {
+        return this.desconto;
     }
 }
